@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.POJOs.EmailRequest;
+import com.example.demo.pojo.EmailRequest;
 import com.example.demo.config.EmailSenderConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.MimeMessageHelper;

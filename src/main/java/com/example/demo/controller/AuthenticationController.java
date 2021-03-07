@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.POJOs.UsernameAndPasswordAuthenticationRequest;
+import com.example.demo.pojo.UsernameAndPasswordAuthenticationRequest;
 import com.example.demo.dto.UserDTO;
 import com.example.demo.jwt.JwtConfig;
 import com.example.demo.repository.UserRepository;
