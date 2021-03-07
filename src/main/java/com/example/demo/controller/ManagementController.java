@@ -14,28 +14,30 @@ import java.util.List;
 
 
 
-// This endpoints are for normal users(customers) of the product
+// This endpoints are for management operations and can be accessed only by managers and administrators.
 @RestController
 @CrossOrigin()
-@RequestMapping("/customer/api/")
-public class UserController {
+@RequestMapping("/management/api/")
+public class ManagementController {
 
     private final UserRepository userRepository;
     private final UserConverter userConverter;
 
     @Autowired
-    public UserController(UserRepository userRepository, UserConverter userConverter) {
+    public ManagementController(UserRepository userRepository, UserConverter userConverter) {
         this.userRepository = userRepository;
         this.userConverter = userConverter;
     }
 
     @GetMapping(value = "welcome")
     public String sayWelcome() {
-        return "Welcome customer!!!";
+        return "Welcome management!!!";
     }
 
-    // TO-DO: Add CRUD operations for customers as REST endpoints
 
-
+    @GetMapping(value = "users")
+    public ResponseEntity<?> getAllUsers() {
+        List<UserDAO> userDAOS = userRepository.findAll();
+        return ResponseEntity.ok().body(userConverter.daoToDto(userDAOS));
+    }
 }
-
